@@ -2,7 +2,7 @@ name: Android CI build and publish release APK
 
 on:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
   build:
