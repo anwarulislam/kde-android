@@ -66,8 +66,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
-    - name: Publish APK
-      uses: alsrb968/action-release-apk@master
+    - name: Release APK
+      uses: softprops/action-gh-release@v1
+      with:
+        files: app/build/outputs/apk/debug/*.apk
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        APP_FOLDER: app
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
