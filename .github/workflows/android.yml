@@ -66,6 +66,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
+    - name: Create and Push Tag
+      run: |
+        TAG=$(date +v%Y%m%d-%H%M%S)
+        git tag $TAG
+        git push origin $TAG
+
     - name: Release APK
       uses: softprops/action-gh-release@v1
       with:
